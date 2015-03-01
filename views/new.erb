@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>LaunchPosts</title>
+  </head>
+
+  <body>
+    <h1>Add A New LaunchPost</h1>
+
+    <form action="/posts/new" method="post"> <!-- action specifies the path that the form submission will go to -->
+      <select name="language_drop_down">
+        <option value="Ruby">Ruby</option>
+        <option value="Javascript">Javascript</option>
+        <option value="CSS">CSS</option>
+        <option value="HTML">HTML</option>
+        <option value="Misc">Misc</option>
+      </select>
+    </br></br>
+        <label for="title">New LaunchPost:</label>
+        <input type="text" id="title" name="title">
+      </br>
+        <label for="url">Post URL:</label>
+        <input type="text" id="url" name="url">
+      </br>
+        <label for="description">LaunchPost Description:</label>
+        <input type="text" id="description" name="description"> <!-- name should be what the user typed in that particular field -->
+      </br></br>
+      <input type="submit">
+
+      </form>
+  </body>
+</html>
