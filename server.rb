@@ -15,7 +15,7 @@ end
 def add_new_post(params)
   post = [params["title"], params["url"], params["description"]]
   db_connection do |conn|
-    conn.exec_params( "INSERT INTO posts (id, title, url, description, language_id) VALUES (DEFAULT, $1, $2, $3, DEFAULT)", post )
+    conn.exec_params( "INSERT INTO posts (id, title, url, description, language_id) VALUES (DEFAULT, $1, $2, $3, 1)", post )
   end
 end
 
