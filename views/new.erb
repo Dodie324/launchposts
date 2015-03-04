@@ -1,32 +1,57 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <title>LaunchPosts</title>
-  </head>
-
-  <body>
-    <h1>Add A New LaunchPost</h1>
+  <h1>Add A New LaunchPost</h1>
 
     <form action="/posts/new" method="post"> <!-- action specifies the path that the form submission will go to -->
-      <select name="language_drop_down">
-        <option value="Ruby">Ruby</option>
-        <option value="Javascript">Javascript</option>
-        <option value="CSS">CSS</option>
-        <option value="HTML">HTML</option>
-        <option value="Misc">Misc</option>
+      <div class="row collapse">
+      <select id="language_id" name="language_id">
+        <option value="1">Ruby</option>
+        <option value="2">HTML/CSS</option>
+        <option value="3">Javascript/jQuery</option>
+        <option value="4">SQL</option>
+        <option value="5">Misc</option>
       </select>
+      </div>
+
     </br></br>
-        <label for="title">New LaunchPost:</label>
-        <input type="text" id="title" name="title">
-      </br>
-        <label for="url">Post URL:</label>
-        <input type="text" id="url" name="url">
-      </br>
-        <label for="description">LaunchPost Description:</label>
-        <input type="text" id="description" name="description"> <!-- name should be what the user typed in that particular field -->
+      
+       <div class="submit title">
+          <label for="title">New LaunchPost:</label>
+          <div class="small-9 large-10 columns">
+            <input type="text" id="title" name="title">
+          </div>
+       </div>
+    
+       </br></br> 
+
+       <div class="submit url"> 
+          <label for="url">Post URL:</label>
+          <div class="small-3 large-2 columns">
+           <span class="prefix">http://</span>
+          </div>
+          <div class="small-9 large-10 columns">
+           <input type="text" id="url" name="url" placeholder="Enter your URL...">
+          </div>
+       </div>
+
+       <div class="submit description">
+          <label for="description">LaunchPost Description:</label>
+          <div class="small-9 large-10 columns">
+            <input type="text" id="description" name="description"> 
+          </div> 
+       </div>   
+
       </br></br>
       <input type="submit">
+             </div>
 
       </form>
-  </body>
-</html>
+
+
+<!-- <form>
+  <div class="row collapse">
+    <div class="small-3 large-2 columns">
+      <span class="prefix">http://</span>
+    </div>
+    <div class="small-9 large-10 columns">
+      <input type="text" placeholder="Enter your URL...">
+    </div>
+  </div> -->
