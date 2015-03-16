@@ -1,8 +1,29 @@
-<div class="language_post">
-  <% topic.each do |post| %>
-    <div class="post_title"><%= "#{post["title"]}" %></div>
-    <div class="post_url"><a href="<%= post["url"] %>"><%= "#{post["url"]}" %></a></div>
-    <div class="post_desc"><%= "#{post["description"]}" %></div>
-  </br>
-  <% end %>
+<div class="topic_post">
+	<% if topic.empty? %>
+		<%= "There are no posts for this topic." %>
+	<% else %>
+	<div class="topic_header" name="<%= params["topic"] %>">
+		<%= topic[0]["topic"] %>
+	</div>
+
+	<div class="all_posts">
+		<% topic.each do |post| %>
+			<div class="post panel callout">
+				<div class="post_title">
+					<%= post["title"] %>
+				</div>
+
+				<div class="post_url">
+				 	<a href="<%= post["url"] %>">
+				 		<%= post["url"] %>
+				 	</a>
+				</div>
+
+				<div class="post_desc">
+					<%= post["description"] %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<% end %>
 </div>

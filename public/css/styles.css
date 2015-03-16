@@ -1,4 +1,85 @@
-.post_title {
-  font-size: 1em;
-  font-family: Verdana;
+body {
+	background: #f7fdff;
 }
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+.header {
+ 	background: #1C2225;
+ 	height: 80px;
+ 	border-top: 1px solid #ed197b;
+ }
+
+ .logo {
+ 	margin: 10px;
+ 	float: left;
+ }
+
+ .header_title {
+  font-weight: bold;
+  display: inline-block;
+  font-family: "quatro-slab", serif;
+  padding: 12px;
+  font-size: 2.5em;
+  color: white;
+  text-decoration: none;
+ }
+
+.nav {
+ 	display: inline-block;
+ 	float: right;
+ 	padding: 34px;
+ }
+
+.topic_post {
+ 	padding: 50px;
+ 	width: 75%;
+ 	margin-left: auto;
+  margin-right: auto;
+ }
+
+.topic_header {
+	font-size: 2.5em;
+  font-family: "quatro-slab",serif;
+  color: #ed197b;
+  padding-bottom: 30px;
+}
+
+.post_title {
+  font-size: 1.5em;
+  font-family: "quatro-slab",serif;
+  color: #ed197b;
+}
+
+.post_url {
+	font-size: 1em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #ED197B;
+}
+
+.post_description {
+	font-size: 1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "quatro-slab",serif;
+
+}
+
+/*.submit_button {
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+

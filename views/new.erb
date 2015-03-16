@@ -1,57 +1,58 @@
-  <h1>Add A New LaunchPost</h1>
+<div class="topic_post">
+  <div class="topic_header">
+    Add a new LaunchPost!
+  </div>
 
-    <form action="/posts/new" method="post"> <!-- action specifies the path that the form submission will go to -->
-      <div class="row collapse">
-      <select id="language_id" name="language_id">
-        <option value="1">Ruby</option>
-        <option value="2">HTML/CSS</option>
-        <option value="3">Javascript/jQuery</option>
-        <option value="4">SQL</option>
-        <option value="5">Misc</option>
-      </select>
+  <div class="errors">
+    <% unless errors.empty? %>
+      <% errors.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form">
+    <form id="new_post" action="/posts/new" method="post">
+    <div class="row collapse">
+      <div class="small-5 large-3 columns">
+        <select id="topic" name="topic">
+          <option value="1">Ruby</option>
+          <option value="2">HTML/CSS</option>
+          <option value="3">Javascript/jQuery</option>
+          <option value="4">SQL</option>
+          <option value="5">Misc</option>
+        </select>
       </div>
 
-    </br></br>
-      
-       <div class="submit title">
-          <label for="title">New LaunchPost:</label>
-          <div class="small-9 large-10 columns">
-            <input type="text" id="title" name="title">
-          </div>
-       </div>
-    
-       </br></br> 
+      </br></br></br>
 
-       <div class="submit url"> 
-          <label for="url">Post URL:</label>
-          <div class="small-3 large-2 columns">
-           <span class="prefix">http://</span>
-          </div>
-          <div class="small-9 large-10 columns">
-           <input type="text" id="url" name="url" placeholder="Enter your URL...">
-          </div>
-       </div>
+      <label for="title">Post Title:</label>
+      <div class="small-5 large-10 columns">
+        <input type="text" id="title" name="title" value="<%= params["title"] %>">
+      </div>
 
-       <div class="submit description">
-          <label for="description">LaunchPost Description:</label>
-          <div class="small-9 large-10 columns">
-            <input type="text" id="description" name="description"> 
-          </div> 
-       </div>   
+    </br></br></br>
 
-      </br></br>
-      <input type="submit">
-             </div>
+      <label for="url">Post URL:</label>
+      <div class="small-1 large-2 columns">
+        <span class="prefix">http://</span>
+      </div>
+      <div class="small-5 large-8 columns">
+        <input type="text" id="url" name="url" value="<%= params["url"] %>">
+      </div>
 
-      </form>
+    </br></br></br>
 
+      <label for="description">Post Description:</label>
+      <div class="small-9 large-10 columns">
+        <input type="text" id="description" name="description" value="<%= params["description"] %>">
+      </div>
 
-<!-- <form>
-  <div class="row collapse">
-    <div class="small-3 large-2 columns">
-      <span class="prefix">http://</span>
+    </br></br></br>
+      <div class="submit_button">
+        <input type="submit">
+      </div>
+    </form>
     </div>
-    <div class="small-9 large-10 columns">
-      <input type="text" placeholder="Enter your URL...">
-    </div>
-  </div> -->
+  </div>
+</div>

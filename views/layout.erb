@@ -6,13 +6,33 @@
     <title>LaunchPosts</title>
       <link rel="stylesheet" href="/css/normalize.css">
       <link rel="stylesheet" href="/css/foundation.min.css">
-      <link rel="stylesheet" href="/css/styles.css">
+      <link type="text/css" rel="stylesheet" href="/css/styles.css">
   </head>
 
   <body>
-    <div class="row">
-    <%= yield %>
+  <div class="container">
+  <div class="header">
+    <div class="logo">
+      <a href='http://www.launchacademy.com'><img src="http://www.launchacademy.com/assets/logo-bc2f994a95ec977cb32704b250399038.png"></a>
     </div>
-  </body>
 
+    <div class="header_title">
+      LaunchPosts
+    </div>
+    <div class="nav">
+      <a href="/posts">Home |</a>
+      <a href="/posts/new">New LaunchPost |</a>
+      <% if !user_signed_in? %>
+      <a href="/sign_in">Sign In</a>
+      <% else %>
+      <a href="/sign_out">Sign out</a>
+      <% end %>
+    </div>
+  </div>
+  </div>
+    <%= yield %>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="/js/more_posts.js"></script>
+  </body>
+</div>
 </html>
