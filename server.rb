@@ -1,10 +1,9 @@
 require 'sinatra'
 require 'pg'
-require 'rubygems'
 require 'flowdock'
 require 'dotenv'
 require 'httparty'
-require 'pry'
+
 Dotenv.load
 
 POSTS_PER_PAGE = 5
