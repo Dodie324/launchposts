@@ -6,7 +6,7 @@ require 'httparty'
 
 Dotenv.load
 
-POSTS_PER_PAGE = 5
+POSTS_PER_PAGE = 7
 
 use Rack::Session::Cookie, {
   expire_after: 2592000, secret: ENV["SESSION_SECRET"]
