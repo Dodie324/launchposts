@@ -1,0 +1,245 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: posts; Type: TABLE; Schema: public; Owner: Dodie; Tablespace: 
+--
+
+CREATE TABLE posts (
+    id integer NOT NULL,
+    title character varying(255) NOT NULL,
+    url character varying(500),
+    description character varying(500) NOT NULL,
+    post_date timestamp without time zone,
+    topic_id integer NOT NULL
+);
+
+
+ALTER TABLE posts OWNER TO "Dodie";
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: Dodie
+--
+
+CREATE SEQUENCE posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE posts_id_seq OWNER TO "Dodie";
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Dodie
+--
+
+ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
+
+
+--
+-- Name: web_development; Type: TABLE; Schema: public; Owner: Dodie; Tablespace: 
+--
+
+CREATE TABLE web_development (
+    id integer NOT NULL,
+    topic character varying(50) NOT NULL
+);
+
+
+ALTER TABLE web_development OWNER TO "Dodie";
+
+--
+-- Name: web_development_id_seq; Type: SEQUENCE; Schema: public; Owner: Dodie
+--
+
+CREATE SEQUENCE web_development_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE web_development_id_seq OWNER TO "Dodie";
+
+--
+-- Name: web_development_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Dodie
+--
+
+ALTER SEQUENCE web_development_id_seq OWNED BY web_development.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Dodie
+--
+
+ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Dodie
+--
+
+ALTER TABLE ONLY web_development ALTER COLUMN id SET DEFAULT nextval('web_development_id_seq'::regclass);
+
+
+--
+-- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: Dodie
+--
+
+COPY posts (id, title, url, description, post_date, topic_id) FROM stdin;
+1	Rubular	www.rubular.com	A Ruby regular expression editor	2015-03-15 11:50:36.666919	5
+2	A Short Explanation of ARGV	https://jnoconor.github.io/blog/2013/10/13/a-short-explanation-of-argv/	What ARGV is in Ruby	2015-03-15 11:53:07.920892	5
+3	How to run ERB files in browser with customized directory	http://stackoverflow.com/questions/18670589/how-to-run-erb-files-in-browser-with-a-customized-directory	Stack Overflow discussion on ERB files	2015-03-15 11:55:40.43703	1
+4	Header field definitions	http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23	Defines the syntax and semantics of all standard HTTP/1.1 header fields	2015-03-15 11:57:00.72184	2
+5	Difference between ID and Name Attributes	http://stackoverflow.com/questions/1397592/difference-between-id-and-name-attributes-in-html	Know the differences between ID and Name Attributes	2015-03-15 12:16:03.934179	2
+6	Form Input Attributes	https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-type	Input HTML reference	2015-03-15 12:18:22.617194	2
+7	Sinatra Redirect on Errors	http://stackoverflow.com/questions/13421465/sinatra-redirect-on-error	Redirects in Sinatra	2015-03-15 12:20:08.610463	1
+8	Building a Binary Tree with Enumerable	http://www.mikeperham.com/2014/11/26/building-a-binary-tree-with-enumerable/	Understanding binary trees in Ruby	2015-03-15 12:22:12.393613	1
+9	Huffman Encoding Trees	https://mitpress.mit.edu/sicp/full-text/sicp/book/node41.html	Great article for the data compression exercise	2015-03-15 12:23:02.647562	1
+10	Difference between Array#push and Array#<<	http://stackoverflow.com/questions/10569529/ruby-difference-between-array-and-arraypush/10569543#10569543	What are the differences between the two array methods	2015-03-15 12:24:03.184309	1
+11	Text Compression: Huffman Encoding (VIDEO)	https://www.youtube.com/watch?v=ZdooBTdW5bM	Understanding text compression using Huffman Encoding	2015-03-15 12:25:16.39875	1
+12	Git - The Simple Guide	https://rogerdudler.github.io/git-guide/	A simple guide for getting started with git	2015-03-15 12:25:57.951506	5
+13	Atom Auto Close package	https://atom.io/packages/autoclose-html	Auto Close HTML package for Atom Text Editor	2015-03-15 12:26:56.97206	5
+14	Da Font	http://www.dafont.com/	A collection of font styles you can use in your code	2015-03-15 12:28:32.170706	2
+15	Web Font Generator	http://www.fontsquirrel.com/tools/webfont-generator	Generate your own font	2015-03-15 12:29:05.113684	2
+16	Google Fonts	https://www.google.com/fonts/	Google Fonts	2015-03-15 12:29:34.796899	2
+17	CSS Tricks	https://css-tricks.com/	A site about all things web design and development	2015-03-15 12:30:33.735058	2
+18	Normalization of Database	http://www.studytonight.com/dbms/database-normalization.php	Understanding database normalization	2015-03-15 12:31:36.088215	4
+19	HTML Element Reference	http://www.w3schools.com/tags/	List of HTML tags	2015-03-15 12:32:18.583904	2
+20	Quick sort example	https://gist.github.com/erikgrueter/380bf3b2cf63fc8e5e7a	An example on how to write a quick sort method	2015-03-15 12:33:31.04176	1
+21	JS Fiddle - Create a new fiddle	http://jsfiddle.net/	A place to write and test code	2015-03-15 12:34:25.479178	5
+22	Sinatra JSON	http://www.sinatrarb.com/contrib/json.html	Sinatra helper method to use when working with JSON	2015-03-15 12:36:03.627736	3
+23	Lempel-ZIv-Welch Compression Algorithm	https://www.youtube.com/watch?v=j2HSd3HCpDs	A compression algorithm video to help with the data compression exercise	2015-03-15 12:36:51.619128	1
+24	JSLint	http://www.jslint.com/	Javascript code quality tool	2015-03-15 12:38:57.065555	3
+25	JavaScript for Cats	http://jsforcats.com/	An introduction to JavaScript for new programmers	2015-03-15 12:39:45.969809	3
+26	Elevator Saga	http://play.elevatorsaga.com/	The elevator programming game	2015-03-15 12:40:32.204561	3
+28	Frontend Guidelines	https://github.com/bendc/frontend-guidelines	Helpful HTML/CSS/JavaScript guidelines	2015-03-15 12:43:28.471308	3
+29	LaunchCop	https://github.com/LaunchAcademy/launchcop	Helps beginners learn Ruby best practices	2015-03-15 12:45:29.728247	1
+30	Atom Lint Package	https://atom.io/packages/atom-lint	Generic code linting support, including RuboCop, flake8, JSHint, CoffeeLint, etc	2015-03-15 12:47:33.749908	5
+31	Datastroyer	http://datastroyer.herokuapp.com/	Parsing your JSON has never been easier	2015-03-15 12:48:49.079894	5
+32	API Clinic	https://github.com/SpencerCDixon/API-Clinic	Instructions on how to use APIs	2015-03-15 12:50:57.497773	5
+33	Sublime Text 3 Shortcuts	https://blog.generalassemb.ly/sublime-text-3-tips-tricks-shortcuts/	Making your transition to Sublime Text 3 easier	2015-03-15 12:52:36.59317	5
+34	Emmet Cheat Sheet	http://docs.emmet.io/cheat-sheet/	Emmet syntax and shortcuts 	2015-03-15 12:53:27.532464	5
+35	Sublime Text OS X Command Line Set Up	http://stackoverflow.com/questions/13655343/sublime-text-2-os-x-command-line	Setting up Sublime Text in your command line	2015-03-15 12:54:14.232879	5
+36	New Project Creator - Sinatra File Template	https://github.com/cocolote/new-project-creator	Simple routine to create the scaffolds for a new Sinatra app	2015-03-15 12:55:37.643431	5
+37	HTTPS Everywhere Plugin	https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=en-US	Encrypt the Web! Automatically use HTTPS security on many sites	2015-03-15 12:56:40.964907	5
+38	Basic Forms	http://www.theodinproject.com/ruby-on-rails/form-basics	Truly understanding forms 	2015-03-15 12:59:09.763333	1
+39	SQL Tutorial	http://sqlzoo.net/wiki/Main_Page	Practice SQL commands	2015-03-15 13:00:19.001155	4
+40	Postgresql function for last inserted id	http://stackoverflow.com/questions/2944297/postgresql-function-for-last-inserted-id	SQL command useful for inserting & returning the newly-generated id in one step	2015-03-15 13:01:49.883708	4
+41	Difference between INNER JOIN, LEFT JOIN, RIGHT JOIN and FULL JOIN	http://stackoverflow.com/questions/5706437/whats-the-difference-between-inner-join-left-join-right-join-and-full-join	Learn the differences between the different JOINS in SQL	2015-03-15 13:03:18.205339	4
+42	Visual explanation of SQL JOINS	http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/	Understanding SQL Joins	2015-03-15 13:04:08.28971	4
+43	PG Formatter	https://github.com/darold/pgFormatter	A PostgreSQL SQL syntax beautifier	2015-03-15 13:05:39.671557	4
+44	PostgreSQL Tutorial	http://www.tutorialspoint.com/postgresql/	Practice your SQL	2015-03-15 13:06:56.781718	4
+45	Making a Ruby Script Executable	http://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/	How to go from running a Ruby script by invoking Ruby directly, to running the script by its name alone	2015-03-15 13:12:10.27548	1
+46	Gosu Tutorial	https://github.com/SpencerCDixon/Gosu-Tutorial	This is a basic tutorial to help Rubyists interested in Gosu/Game Development to get started	2015-03-15 13:12:54.509872	1
+47	Git Cheat Sheet	https://gist.github.com/cmkoller/f10bcd6de81af75b4010	Git Cheat Sheet	2015-03-15 13:13:48.127333	5
+48	Parsing HTML with Nokogiri	http://ruby.bastardsbook.com/chapters/html-parsing/	Quickly extract data from raw HTML with the Nokogiri gem	2015-03-15 13:14:34.517578	5
+49	Ruby Koans	http://rubykoans.com/	Great tool to start leveling up your ruby skills	2015-03-15 13:15:58.067971	1
+50	Free Programming Books	https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md	List of free programming books	2015-03-15 13:17:27.444968	5
+\.
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Dodie
+--
+
+SELECT pg_catalog.setval('posts_id_seq', 50, true);
+
+
+--
+-- Data for Name: web_development; Type: TABLE DATA; Schema: public; Owner: Dodie
+--
+
+COPY web_development (id, topic) FROM stdin;
+1	Ruby
+2	HTML/CSS
+3	JavaScript/jQuery
+4	SQL
+5	Misc
+\.
+
+
+--
+-- Name: web_development_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Dodie
+--
+
+SELECT pg_catalog.setval('web_development_id_seq', 5, true);
+
+
+--
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: Dodie; Tablespace: 
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: posts_url_key; Type: CONSTRAINT; Schema: public; Owner: Dodie; Tablespace: 
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT posts_url_key UNIQUE (url);
+
+
+--
+-- Name: web_development_pkey; Type: CONSTRAINT; Schema: public; Owner: Dodie; Tablespace: 
+--
+
+ALTER TABLE ONLY web_development
+    ADD CONSTRAINT web_development_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: posts_topic_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Dodie
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT posts_topic_id_fkey FOREIGN KEY (topic_id) REFERENCES web_development(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: Dodie
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM "Dodie";
+GRANT ALL ON SCHEMA public TO "Dodie";
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
