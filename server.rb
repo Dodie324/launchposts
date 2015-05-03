@@ -60,7 +60,7 @@ get "/sign_out" do
 end
 
 get "/sign_in" do
-  redirect "https://www.flowdock.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&redirect_uri=https%3A%2F%2Flaunchposts%3Aherokuapp%2Fcallback&response_type=code"
+  redirect "https://www.flowdock.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2Fcallback&response_type=code"
 end
 
 get "/callback" do
@@ -70,7 +70,7 @@ get "/callback" do
     "client_id" => ENV["CLIENT_ID"],
     "client_secret" => ENV["CLIENT_SECRET"],
     "code" => params["code"],
-    "redirect_uri" => "https://launchposts.herokuapp/callback",
+    "redirect_uri" => "http://localhost:4567/callback",
     "grant_type" => "authorization_code"
   })
 
