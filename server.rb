@@ -70,7 +70,7 @@ get "/callback" do
     "client_id" => ENV["CLIENT_ID"],
     "client_secret" => ENV["CLIENT_SECRET"],
     "code" => params["code"],
-    "redirect_uri" => "http://localhost:4567/callback",
+    "redirect_uri" => "http://localhost:4567/callback" || "https://launchposts.herokuapp.com/callback",
     "grant_type" => "authorization_code"
   })
 
