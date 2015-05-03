@@ -132,15 +132,6 @@ def valid_url?(url)
   !url.to_a.empty?
 end
 
-def post_to_params(params)
-  param_string = "?"
-  params.each do |key, value|
-    param_string << "#{key}=#{value}&"
-  end
-
-  param_string
-end
-
 def get_error_message(params)
   error_mess = []
 
